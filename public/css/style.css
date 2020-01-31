@@ -11,6 +11,10 @@ body {
     font-weight: bold;
 }
 
+/*burger{
+    width: 10vw;
+}*/
+
 .burger:hover{
     background-color: red;
 }
@@ -24,7 +28,7 @@ button{
 }
 
 table{
-    width: 10%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -40,6 +44,8 @@ html{
 
 #header{
     margin: auto;
+    height: 30vh;
+    overflow: hidden;
 }
 #prodInfo{
     background-color: black;
@@ -52,6 +58,13 @@ html{
 }
 
 #mainPic{
-    width: 95vw;
-    opacity: 0.5;
+    width: 100%;
+    height: auto;
+    opacity: 0.7;
+}
+
+#mainHeading{
+    position: absolute;
+    margin-top: -300px;
+    margin-left: 400px;
 }

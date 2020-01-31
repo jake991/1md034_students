@@ -19,6 +19,10 @@ button:hover{
     cursor: pointer;
 }
 
+body table{
+    width: %10;
+    margin: 0 auto;
+}
 
 #prodInfo{
     background-color: black;

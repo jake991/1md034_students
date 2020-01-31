@@ -11,9 +11,9 @@ body {
     font-weight: bold;
 }
 
-/*burger{
+burger{
     width: 10vw;
-}*/
+}
 
 .burger:hover{
     background-color: red;
@@ -68,3 +68,73 @@ html{
     margin-top: -300px;
     margin-left: 400px;
 }
+
+
+.wrapper {
+     display: grid;
+     grid-gap: 10px;
+     grid-template-columns: 400px 400px 400px;
+     background-color: black;
+     color: white;
+ }
+
+ .box {
+     background-color: black;
+     color: white;
+     /*border-radius: 5px;*/
+     padding: 20px;
+
+ }
+
+ .aa {
+     grid-column: 1;
+     grid-row:1;
+     margin: auto;
+ }
+
+ .ab {
+     grid-column: 1;
+     grid-row:2;
+ }
+
+ .ac {
+     grid-column: 1;
+     grid-row:3;
+     margin: auto;
+ }
+
+ .ba {
+     grid-column: 2;
+     grid-row:1;
+     margin: auto;
+ }
+
+ .bb {
+     grid-column: 2;
+     grid-row:2;
+ }
+
+ .bc {
+     grid-column:2;
+     grid-row:3;
+     margin: auto;
+ }
+
+ .ca {
+     grid-column:3;
+     grid-row:1;
+     margin: auto;
+ }
+
+ .cb {
+     grid-column:3;
+     grid-row:2;
+ }
+
+ .cc {
+     grid-column:3;
+     grid-row:3;
+     margin: auto;
+ }
+                     
+ 

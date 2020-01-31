@@ -11,6 +11,15 @@ body {
     font-weight: bold;
 }
 
+.burger:hover{
+    background-color: red;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+
 #prodInfo{
     background-color: black;
     color: white;

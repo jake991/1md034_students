@@ -30,21 +30,21 @@
                 <ul>
                   <li>Contains: cheese, bacon, meet and fries.</li>
                   <li>Calories: 923.</li>
-                  <li>Allergy: contain gluten</li>
+                  <li>Allergy: contain gluten.</li>
                 </ul>
               </td>
               <td>
                 <ul>
                   <li>Contains: chedar cheese, meet and fries.</li>
                   <li>Calories: 850.</li>
-                  <li>Allergy: gluten free</li>
+                  <li>Allergy: gluten free.</li>
                 </ul>
               </td>
               <td>
                 <ul>
                   <li>Contains: flafela and fries.</li>
                   <li>Calories: 700.</li>
-                  <li>Allergy: gluten free and lactose free</li>
+                  <li>Allergy: gluten free and lactose free.</li>
                 </ul>
               </td>
             </tr>
@@ -74,10 +74,25 @@
           <br />
           <label for="house">House</label>
           <br />
-          <input type="number" name="house" required="required" placeholder="Write your house number  here">
-
-          
+          <input type="number" name="house" required="required" placeholder="Write your house number  here">          
         </form>
+        <br>
+        <br>
+        <h3>Select gender</h3>
+        <input type="radio" name="gender" value="male"> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other<br>
+        <input type="radio" name="gender" value="not specific" checked="checked"> Don't want to specify
+
+        <h3>Payment method</h3>
+        <p>Select your payment method here</p>
+        <label for="paymethod">Payment method</label><br />
+        <select id="paymethod" name="paymethod">
+          <option>Master Card</option>
+          <option selected="selected">Visa Card</option>
+          <option>Swish</option>
+          <option>Cash</option>
+        </select>
       </section>
       <footer>
         <hr>

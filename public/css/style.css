@@ -33,10 +33,14 @@ section{
     padding: 10px;
 }
 
+
 html{
     margin: 10px;
 }
 
+#header{
+    margin: auto;
+}
 #prodInfo{
     background-color: black;
     color: white;
@@ -45,4 +49,9 @@ html{
 
 #custInfo{
     border: 2px dashed black;
+}
+
+#mainPic{
+    width: 95vw;
+    opacity: 0.5;
 }

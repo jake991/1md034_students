@@ -4,5 +4,14 @@ body {
     font-style: normal;
     font-weight: normal;
     font-size: 3vh;
-    color: black;
+    color: yellow;
+}
+
+.ingredients{
+    color: red;
+    font-style: italic;
+}
+
+#gluten{
+    font-weight: bold;
 }

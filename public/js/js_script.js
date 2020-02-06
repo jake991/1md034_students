@@ -22,8 +22,28 @@ let burger4 = new menuItem("American Stack", "Contains: ribs with BBQ sauce.", 9
 
 let burger5 = new menuItem("Chorize Burger", "Contains: Chorizo sausages.", 940, "Allergy: gluten free and lactose free", "https://www.kitchenkonfidence.com/wp-content/uploads/2015/08/Chorizo-Cheddar-Burger.jpg");
 
-console.log(burger1.getNameAndKcal());
-console.log(burger2.getNameAndKcal());
-console.log(burger3.getNameAndKcal());
-console.log(burger4.getNameAndKcal());
-console.log(burger5.getNameAndKcal());
+let txt1 = document.createTextNode(burger1.getNameAndKcal());
+let txt2 = document.createTextNode(burger2.getNameAndKcal());
+let txt3 = document.createTextNode(burger3.getNameAndKcal());
+let txt4 = document.createTextNode(burger4.getNameAndKcal());
+let txt5 = document.createTextNode(burger5.getNameAndKcal());
+
+let par1 = document.createElement('p');
+let par2 = document.createElement('p');
+let par3 = document.createElement('p');
+let par4 = document.createElement('p');
+let par5 = document.createElement('p');
+
+par1.appendChild(txt1);
+par2.appendChild(txt2);
+par3.appendChild(txt3);
+par4.appendChild(txt4);
+par5.appendChild(txt5);
+
+document.getElementById('myID').appendChild(par1);
+document.getElementById('myID').appendChild(par2);
+document.getElementById('myID').appendChild(par3);
+document.getElementById('myID').appendChild(par4);
+document.getElementById('myID').appendChild(par5);
+
+

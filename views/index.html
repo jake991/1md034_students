@@ -4,9 +4,9 @@
     <title>BurgerHeaven</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/js_script.js"></script>
-    <script src="js/vue_script.js"></script>
-    <script src="https://vuejs.org/js/vue.js"></script>
+    <script src="js/js_script.js" defer></script>
+    <script src="js/vue_script.js" defer></script>
+    <script src="https://vuejs.org/js/vue.js" defer></script>
   </head>
   <header id="header">
     <img id="mainPic" src="https://www.umamiburger.com/wp-content/uploads/2015/02/umami-burger-location-anaheim.jpg" >
@@ -17,19 +17,7 @@
       <section id="prodInfo">
         <h2>Select Burgers</h2>
         <p> select your burger here</p>
-        <div class="wrapper">
-          <div class="box aa"><p>Cheese and Bacon Burger</p></div>
-          <div class="box ab"><img class="burger" src="https://i1.wp.com/www.foodrepublic.com/wp-content/uploads/2012/03/baconbluecheeseburger.jpg?resize=700%2C%20466&ssl=1" alt="Not Found" title="cheese and bacon burger" width="350" ></div>
-          <div class="box ac"><p>Contains: cheese, bacon, meet and fries.<br>Calories: 923.<br><span class="allergy">Allergy: contain gluten.</span></p></div>
-          
-          <div class="box ba"><p>Umami Burger</p></div>
-          <div class="box bb"><img class="burger" src="https://mealhack.com/wp-content/uploads/2014/09/umami-dusted-burger_0008-680x453.jpg" alt="Not Found" title="umami burger" width="350"></div>
-          <div class="box bc"><p>Contains: cheese, bacon, meet and fries.<br>Calories: 923.<br><span class="allergy">Allergy: contain gluten.</span></p></div>
-
-       
-          <div class="box ca"><p>Vegge Burger</p></div>
-          <div class="box cb"><img class="burger" src="https://assets.bonappetit.com/photos/57acae2d1b33404414975121/master/pass/ultimate-veggie-burger.jpg" alt="Not Found" title="vegge burger" width="350"></div>
-          <div class="box cc"><p>Contains: flafel and fries.<br>Calories: 700.<br><span class="allergy">Allergy: gluten free and lactose free.</span></p></div>
+        <div class="wrapper" id="wrapperID">
         </div>
       </section>
       <section id="custInfo">

@@ -38,6 +38,7 @@ let burger4 = new menuItem("American Stack", "Contains: ribs with BBQ sauce.", 9
 
 let burger5 = new menuItem("Chorizo Burger", "Contains: Chorizo sausages.", 940, null, "https://www.kitchenkonfidence.com/wp-content/uploads/2015/08/Chorizo-Cheddar-Burger.jpg");
 
+/*
 var burgers = [burger1, burger2, burger3, burger4, burger5];
 
 for(let burger of  burgers){
@@ -72,3 +73,4 @@ for(let burger of  burgers){
     document.getElementById('wrapperID').appendChild(div);
 }
 
+*/

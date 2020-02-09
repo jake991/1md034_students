@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/js_script.js" defer></script>
     <script src="js/vue_script.js" defer></script>
-    <script src="https://vuejs.org/js/vue.js" defer></script>
+    <script src="https://vuejs.org/js/vue.js" ></script>
   </head>
   <header id="header">
     <img id="mainPic" src="https://www.umamiburger.com/wp-content/uploads/2015/02/umami-burger-location-anaheim.jpg" >
@@ -18,6 +18,30 @@
         <h2>Select Burgers</h2>
         <p> select your burger here</p>
         <div class="wrapper" id="wrapperID">
+          <div v-for="burger in burgers">
+            <ul>
+              <li>
+                <h3>{{burger.name}}</h3>
+              </li>
+              
+              <li>
+                <img id="{{burger.name}}" v-bind:src="burger.image" v-bind:width="width"></img>
+              </li>
+              
+              <li>
+                <p>{{burger.ingreds}}</p>
+              </li>
+              
+              <li>
+                <p>{{burger.calories}} Calories</p>
+              </li>
+
+              <li v-if="burger.all_check">
+                <p>{{burger.allergy}}</p>
+              </li>
+              
+            </ul>
+          </div>
         </div>
       </section>
       <section id="custInfo">

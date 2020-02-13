@@ -4,6 +4,7 @@
     <title>BurgerHeaven</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/menu.js"></script>
     <script src="js/js_script.js" defer></script>
     <script src="js/vue_script.js" defer></script>
     <script src="https://vuejs.org/js/vue.js" ></script>
@@ -13,21 +14,18 @@
     <h1 id="mainHeading">Welcome to BurgerHeaven</h1>
   </header>
   <body>
-    <main>
+    <main id="main">
       <section id="prodInfo">
         <h2>Select Burgers</h2>
         <p> select your burger here</p>
         <div class="wrapper" id="wrapperID">
-          <div v-for="burger in burgers">
+          <div v-for="burger in food">
+            <h3>{{burger.name}}</h3>
+            <img v-bind:id="burger.name" v-bind:src="burger.image" v-bind:width="width"></img>
             <ul>
               <li>
-                <h3>{{burger.name}}</h3>
+                <input type="checkbox" name="check" v-bind:value="burger.name">
               </li>
-              
-              <li>
-                <img id="{{burger.name}}" v-bind:src="burger.image" v-bind:width="width"></img>
-              </li>
-              
               <li>
                 <p>{{burger.ingreds}}</p>
               </li>
@@ -50,22 +48,22 @@
         <form>
           <label for="fullname">Full Name</label>
           <br />
-          <input type="text" name="fullname" required="required" placeholder="Write your first name and last name here">
+          <input id="fullname" v-model="fname" type="text" name="fullname" required="required" placeholder="Write your first name and last name here">
           <br />
           <br />
           <label for="email">Email</label>
           <br />
-          <input type="email" name="email" required="required" placeholder="Write your email address here">
+          <input id="email" v-model="email"  type="email" name="email" required="required" placeholder="Write your email address here">
           <br />
           <br />
           <label for="street">Street</label>
           <br />
-          <input type="text" name="street" required="required" placeholder="Write your street's name  here">
+          <input id="street" v-model="street" type="text" name="street" required="required" placeholder="Write your street's name  here">
           <br />
           <br />
           <label for="house">House</label>
           <br />
-          <input type="number" name="house" required="required" placeholder="Write your house number  here">          
+          <input id="house"  v-model="house" type="number" name="house" required="required" placeholder="Write your house number  here">
         </form>
         <br>
         <br>
@@ -73,7 +71,7 @@
         <input type="radio" name="gender" value="male"> Male<br>
         <input type="radio" name="gender" value="female"> Female<br>
         <input type="radio" name="gender" value="other"> Other<br>
-        <input type="radio" name="gender" value="not specific" checked="checked"> Don't want to specify
+        <input type="radio" name="gender" value="not specific"> Don't want to specify
 
         <h3>Payment method</h3>
         <p>Select your payment method here</p>
@@ -86,7 +84,22 @@
         </select>
         <br>
         <br>
-        <button type="submit"><img src="https://image.shutterstock.com/image-vector/burger-delivery-service-logo-vector-260nw-1126379591.jpg" width="50" /> Place order</button>
+        <button id="order" type="submit" v-on:click="getClicked()"><img src="https://image.shutterstock.com/image-vector/burger-delivery-service-logo-vector-260nw-1126379591.jpg" width="50" /> Place order</button>
+        <p v-if="clicked">Name: {{fname}}</p>
+        <p v-if="clicked">Email: {{email}}</p>
+        <p v-if="clicked">Street: {{street}}</p>
+        <p v-if="clicked">House no: {{house}}</p>
+        <p v-if="clicked">{{gender_1}}</p>
+        <p v-if="clicked">{{gender_2}}</p>
+        <p v-if="clicked">{{gender_3}}</p>
+        <p v-if="clicked">{{gender_4}}</p>
+        <p v-if="clicked">{{burger1}}</p>
+        <p v-if="clicked">{{burger2}}</p>
+        <p v-if="clicked">{{burger3}}</p>
+        <p v-if="clicked">{{burger4}}</p>
+        <p v-if="clicked">{{burger5}}</p>
+        
+        
       </section>
       <footer>
         <hr>

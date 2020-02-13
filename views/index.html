@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="js/menu.js"></script>
     <script src="js/js_script.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
     <script src="js/vue_script.js" defer></script>
     <script src="https://vuejs.org/js/vue.js" ></script>
   </head>
@@ -54,16 +55,15 @@
           <label for="email">Email</label>
           <br />
           <input id="email" v-model="email"  type="email" name="email" required="required" placeholder="Write your email address here">
-          <br />
-          <br />
-          <label for="street">Street</label>
-          <br />
-          <input id="street" v-model="street" type="text" name="street" required="required" placeholder="Write your street's name  here">
-          <br />
-          <br />
-          <label for="house">House</label>
-          <br />
-          <input id="house"  v-model="house" type="number" name="house" required="required" placeholder="Write your house number  here">
+          <div class="view-box">
+            <div id="dots" v-on:click="addOrder">
+              <div 
+                v-for="(order, key) in orders"
+                v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                {{key}}
+              </div>
+            </div>
+          </div>
         </form>
         <br>
         <br>
@@ -71,7 +71,7 @@
         <input type="radio" name="gender" value="male"> Male<br>
         <input type="radio" name="gender" value="female"> Female<br>
         <input type="radio" name="gender" value="other"> Other<br>
-        <input type="radio" name="gender" value="not specific"> Don't want to specify
+        <input type="radio" name="gender" value="not specific" checked="checked"> Don't want to specify
 
         <h3>Payment method</h3>
         <p>Select your payment method here</p>
@@ -87,8 +87,6 @@
         <button id="order" type="submit" v-on:click="getClicked()"><img src="https://image.shutterstock.com/image-vector/burger-delivery-service-logo-vector-260nw-1126379591.jpg" width="50" /> Place order</button>
         <p v-if="clicked">Name: {{fname}}</p>
         <p v-if="clicked">Email: {{email}}</p>
-        <p v-if="clicked">Street: {{street}}</p>
-        <p v-if="clicked">House no: {{house}}</p>
         <p v-if="clicked">{{gender_1}}</p>
         <p v-if="clicked">{{gender_2}}</p>
         <p v-if="clicked">{{gender_3}}</p>

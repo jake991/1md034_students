@@ -1,6 +1,11 @@
+'use strict';
+const socket = io();
 const vm = new Vue({
     el: '#main',
     data: {
+
+        orders: {},
+        
         width: 200,
         food,
         clicked: false,
@@ -22,14 +27,28 @@ const vm = new Vue({
         
         fname: "",
         email: "",
-        street:"",
-        house: "",
     },
+    created: function() {
+        /* When the page is loaded, get the current orders stored on the server.
+         * (the server's code is in app.js) */
+        socket.on('initialize', function(data) {
+            this.orders = data.orders;
+        }.bind(this));
+
+        /* Whenever an addOrder is emitted by a client (every open map.html is
+         * a client), the server responds with a currentQueue message (this is
+         * defined in app.js). The message's data payload is the entire updated
+         * order object. Here we define what the client should do with it.
+         * Spoiler: We replace the current local order object with the new one. */
+        socket.on('currentQueue', function(data) {
+            this.orders = data.orders;
+        }.bind(this));
+    },
+    
     methods: {
         getClicked: function (){
             this.clicked = true;
             radio = document.getElementsByName("gender");
-            console.log(radio);
             lene = radio.length;
             this.gender_1 = null;
             this.gender_2 = null;
@@ -37,23 +56,18 @@ const vm = new Vue({
             this.gender_4 = null;
             for(i = 0; i<lene; ++i){
                 if(radio[i].checked){
-                    console.log(i);
                     switch (i){
                     case 0:
                         this.gender_1 = this.gender1;
-                        console.log(this.gender_4);
                         break;
                     case 1:
                         this.gender_2 = this.gender2;
-                        console.log(this.gender_4);
                         break;
                     case 2:
                         this.gender_3 = this.gender3;
-                        console.log(this.gender_4);
                         break;
                     case 3:
                         this.gender_4 = this.gender4;
-                        console.log(this.gender_4);
                         break;
 
                     }
@@ -90,7 +104,36 @@ const vm = new Vue({
                 }
             }
             
-        }
+        },
+
+        getNext: function() {
+            /* This function returns the next available key (order number) in
+             * the orders object, it works under the assumptions that all keys
+             * are integers. */
+            let lastOrder = Object.keys(this.orders).reduce(function(last, next) {
+                return Math.max(last, next);
+            }, 0);
+            return lastOrder + 1;
+        },
+        addOrder: function(event) {
+            /* When you click in the map, a click event object is sent as parameter
+             * to the function designated in v-on:click (i.e. this one).
+             * The click event object contains among other things different
+             * coordinates that we need when calculating where in the map the click
+             * actually happened. */
+            let offset = {
+                x: event.currentTarget.getBoundingClientRect().left,
+                y: event.currentTarget.getBoundingClientRect().top,
+            };
+            socket.emit('addOrder', {
+                orderId: this.getNext(),
+                details: {
+                    x: event.clientX - 10 - offset.x,
+                    y: event.clientY - 10 - offset.y,
+                },
+                orderItems: ['Beans', 'Curry'],
+            });
+        },
 
     }
     

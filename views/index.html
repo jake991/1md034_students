@@ -56,11 +56,10 @@
           <br />
           <input id="email" v-model="email"  type="email" name="email" required="required" placeholder="Write your email address here">
           <div class="view-box">
-            <div id="dots" v-on:click="addOrder">
+            <div id="dots" v-on:click="displayOrder">
               <div 
-                v-for="(order, key) in orders"
-                v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-                {{key}}
+                v-bind:style="{ left: local_object.details.x + 'px', top: local_object.details.y + 'px'}">
+                T
               </div>
             </div>
           </div>
@@ -84,7 +83,7 @@
         </select>
         <br>
         <br>
-        <button id="order" type="submit" v-on:click="getClicked()"><img src="https://image.shutterstock.com/image-vector/burger-delivery-service-logo-vector-260nw-1126379591.jpg" width="50" /> Place order</button>
+        <button id="order" type="submit" v-on:click="getClicked(); addOrder();"><img src="https://image.shutterstock.com/image-vector/burger-delivery-service-logo-vector-260nw-1126379591.jpg" width="50" /> Place order</button>
         <p v-if="clicked">Name: {{fname}}</p>
         <p v-if="clicked">Email: {{email}}</p>
         <p v-if="clicked">{{gender_1}}</p>

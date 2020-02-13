@@ -38,11 +38,17 @@ const vm = new Vue({
         
         fname: "",
         email: "",
+        customerInfo: [],
     },
     
     methods: {
         getClicked: function (){
             this.clicked = true;
+
+            this.customerInfo = [];
+            this.customerInfo.push("Full name: " + this.fname);
+            this.customerInfo.push("Email: " + this.email);
+            
             var radio = document.getElementsByName("gender");
             var leng = radio.length;
             this.gender_1 = null;
@@ -54,15 +60,19 @@ const vm = new Vue({
                     switch (i){
                     case 0:
                         this.gender_1 = this.gender1;
+                        this.customerInfo.push( this.gender_1);
                         break;
                     case 1:
                         this.gender_2 = this.gender2;
+                        this.customerInfo.push( this.gender_2);
                         break;
                     case 2:
                         this.gender_3 = this.gender3;
+                        this.customerInfo.push( this.gender_3);
                         break;
                     case 3:
                         this.gender_4 = this.gender4;
+                        this.customerInfo.push( this.gender_4);
                         break;
 
                     }
@@ -130,7 +140,8 @@ const vm = new Vue({
                     x: this.local_object.details.x,
                     y: this.local_object.details.y,
                 },
-                orderItems: this.orderItems
+                orderItems: this.orderItems,
+                customerInfo: this.customerInfo,
             });
         },
 

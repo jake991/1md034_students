@@ -84,18 +84,29 @@
         <br>
         <br>
         <button id="order" type="submit" v-on:click="getClicked(); addOrder();"><img src="https://image.shutterstock.com/image-vector/burger-delivery-service-logo-vector-260nw-1126379591.jpg" width="50" /> Place order</button>
-        <p v-if="clicked">Name: {{fname}}</p>
-        <p v-if="clicked">Email: {{email}}</p>
-        <p v-if="clicked">{{gender_1}}</p>
-        <p v-if="clicked">{{gender_2}}</p>
-        <p v-if="clicked">{{gender_3}}</p>
-        <p v-if="clicked">{{gender_4}}</p>
-        <p v-if="clicked">{{burger1}}</p>
-        <p v-if="clicked">{{burger2}}</p>
-        <p v-if="clicked">{{burger3}}</p>
-        <p v-if="clicked">{{burger4}}</p>
-        <p v-if="clicked">{{burger5}}</p>
-        
+
+        <div v-if="clicked">
+          <h2>Order Confirmation</h2>
+          <br>
+          <br>
+          <h3>Customer Info</h3>
+          <p>Name: {{fname}}</p>
+          <p>Email: {{email}}</p>
+          <p>{{gender_1}}</p>
+          <p>{{gender_2}}</p>
+          <p>{{gender_3}}</p>
+          <p>{{gender_4}}</p>
+
+          <br>
+          <br>
+
+          <h3>Order details</h3>
+          <p>{{burger1}}</p>
+          <p>{{burger2}}</p>
+          <p>{{burger3}}</p>
+          <p>{{burger4}}</p>
+          <p>{{burger5}}</p>
+        </div>
         
       </section>
       <footer>
